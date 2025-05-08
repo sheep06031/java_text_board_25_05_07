@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        int articleLastId = 0;
         Scanner sc = new Scanner(System.in);
 
 
@@ -14,12 +15,24 @@ public class Main {
         while (true) {
             System.out.printf("명령) ");
             String cmd = sc.nextLine();
-            if (cmd.equals("exit")) {
+
+            if (cmd.equals("/usr/article/write")) {
+                System.out.println("== 게시물 등록 ==");
+                System.out.print("제목 : ");
+                String title = sc.nextLine();
+
+                System.out.print("내용 : ");
+                String content = sc.nextLine();
+
+                articleLastId++;
+                System.out.printf("%d번 게시물이 등록되었습니다.\n",articleLastId);
+
+            } else if (cmd.equals("exit")) {
                 System.out.println("프로그램을 종료합니다");
                 break;
+            } else {
+                System.out.println("명령어를 잘못 입력하셨습니다");
             }
-
-            System.out.printf("입력 된 명령어 : %s\n", cmd);
         }
 
 
