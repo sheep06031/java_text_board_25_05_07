@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int articleLastId = 0;
+        int articleCount = 0;
         Scanner sc = new Scanner(System.in);
 
 
@@ -24,8 +24,10 @@ public class Main {
                 System.out.print("내용 : ");
                 String content = sc.nextLine();
 
-                articleLastId++;
-                System.out.printf("%d번 게시물이 등록되었습니다.\n",articleLastId);
+                articleCount++;
+                Article article = new Article(articleCount, title,content);
+                System.out.printf("%d번 게시물이 등록되었습니다.\n",article.id);
+                System.out.println(article.toString());
 
             } else if (cmd.equals("exit")) {
                 System.out.println("프로그램을 종료합니다");
